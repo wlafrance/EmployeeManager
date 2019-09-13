@@ -1,6 +1,6 @@
 # employeemanager
 
-> Simple Employee system
+> Simple Employee system - added git info
 
 ## Build Setup
 
@@ -18,14 +18,13 @@ npm run build
 npm run build --report
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+#For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
-Quick setup — if you’ve done this kind of thing before
-or
-HTTPS
-SSH
-https://github.com/wlafrance/EmployeeManager.git
-Get started by creating a new file or uploading an existing file. We recommend every repository include a README, LICENSE, and .gitignore.
+#Quick setup — if you’ve done this kind of thing before
+#or
+#HTTPS
+#SSH #https://github.com/wlafrance/EmployeeManager.git
+#Get started by creating a new file or uploading an existing file. We recommend every #repository include a README, LICENSE, and .gitignore.
 
 …or create a new repository on the command line
 echo "# EmployeeManager" >> README.md
