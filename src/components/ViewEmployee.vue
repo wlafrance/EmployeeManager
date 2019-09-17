@@ -13,8 +13,7 @@
 
     <div class="fixed-action-btn">
       <router-link
-        v-bind:to="{name:'edit-employee',
-      params: {employee_id:employee_id}}"
+        v-bind:to="{ name: 'edit-employee', params: { employee_id: employee_id }}"
         class="btn-floating btn-large red"
       >
         <i class="fa fa-pencil"></i>
@@ -24,9 +23,7 @@
 </template>
 
 <script>
-// Bring in firebase database
 import db from "./firebaseInit";
-
 export default {
   name: "view-employee",
   data() {
@@ -36,7 +33,7 @@ export default {
       dept: null,
       position: null
     };
-  }, // lifecycle
+  },
   beforeRouteEnter(to, from, next) {
     db.collection("employees")
       .where("employee_id", "==", to.params.employee_id)
@@ -71,9 +68,8 @@ export default {
     },
     deleteEmployee() {
       if (confirm("Are you sure?")) {
-        var employeeId = this.$route.params.employee_id;
         db.collection("employees")
-          .where("employee_id", "==", employeeId)
+          .where("employee_id", "==", this.$route.params.employee_id)
           .get()
           .then(querySnapshot => {
             querySnapshot.forEach(doc => {

@@ -1,37 +1,39 @@
 <template>
   <div id="new-employee">
-    <h3>Edit employee</h3>
+    <h3>Edit Employee</h3>
     <div class="row">
       <form @submit.prevent="updateEmployee" class="col s12">
-        <div type="text" class="input-field col s12">
-          <input id="employee_id" type="text" v-model="employee_id" disabled />
-          <label for="employee_id" class="active">Empoyee Id #</label>
+        <div class="row">
+          <div class="input-field col s12">
+            <input type="text" v-model="employee_id" required />
+          </div>
         </div>
-        <div type="text" class="input-field col s12">
-          <input type="text" v-model="name" required />
-          <label>Name</label>
+        <div class="row">
+          <div class="input-field col s12">
+            <input type="text" v-model="name" required />
+          </div>
         </div>
-        <div type="text" class="input-field col s12">
-          <input type="text" v-model="dept" required />
-          <label class="active">Department</label>
+        <div class="row">
+          <div class="input-field col s12">
+            <input type="text" v-model="dept" required />
+          </div>
         </div>
-        <div type="text" class="input-field col s12">
-          <input type="text" v-model="position" required />
-          <label class="active">Position</label>
+        <div class="row">
+          <div class="input-field col s12">
+            <input type="text" v-model="position" required />
+          </div>
         </div>
-        <button type="submit" class="btn">Update</button>
-        <router-link class="btn grey" to="/">Cancel</router-link>
+        <button type="submit" class="btn">Submit</button>
+        <router-link to="/" class="btn grey">Cancel</router-link>
       </form>
     </div>
   </div>
 </template>
 
-
 <script>
 import db from "./firebaseInit";
-
 export default {
-  name: "edit-employe",
+  name: "edit-employee",
   data() {
     return {
       employee_id: null,
@@ -40,7 +42,6 @@ export default {
       position: null
     };
   },
-
   beforeRouteEnter(to, from, next) {
     db.collection("employees")
       .where("employee_id", "==", to.params.employee_id)
@@ -74,15 +75,14 @@ export default {
         });
     },
     updateEmployee() {
-      var employeeId = this.$route.params.employee_id;
       db.collection("employees")
-        .where("employee_id", "==", employeeId)
+        .where("employee_id", "==", this.$route.params.employee_id)
         .get()
         .then(querySnapshot => {
           querySnapshot.forEach(doc => {
             doc.ref
               .update({
-                employee_id: employeeId,
+                employee_id: this.employee_id,
                 name: this.name,
                 dept: this.dept,
                 position: this.position
@@ -90,7 +90,7 @@ export default {
               .then(() => {
                 this.$router.push({
                   name: "view-employee",
-                  params: { employee_id: employeeId }
+                  params: { employee_id: this.employee_id }
                 });
               });
           });

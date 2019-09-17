@@ -30,7 +30,6 @@
 
 <script>
 import firebase from "firebase";
-
 export default {
   name: "register",
   data: function() {
@@ -46,9 +45,9 @@ export default {
         .createUserWithEmailAndPassword(this.email, this.password)
         .then(
           user => {
-            console.log(user);
+            // console.log(user);
             alert(`Account Created for ${user.user.email}`);
-            // this.$router.go({ path: this.$router.path });
+            this.$router.go({ path: this.$router.path });
           },
           err => {
             alert(err.message);

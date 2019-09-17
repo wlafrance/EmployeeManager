@@ -1,6 +1,5 @@
 <template>
-  <div id="dashboard">
-    <h3>Dashbaord</h3>
+  <div id="home">
     <ul class="collection with-header">
       <li class="collection-header">
         <h4>Employees</h4>
@@ -12,7 +11,7 @@
           class="secondary-content"
           v-bind:to="{ name: 'view-employee', params: { employee_id: employee.employee_id }}"
         >
-          <i class="fa fa-2x fa-eye"></i>
+          <i class="fa fa-eye"></i>
         </router-link>
       </li>
     </ul>
@@ -26,22 +25,21 @@
 
 <script>
 import db from "./firebaseInit";
-
 export default {
-  name: "dashboard",
+  name: "home",
   data() {
     return {
-      employees: []
+      employees: [],
+      loading: true
     };
   },
   created() {
-    //Runs when component is created.
     db.collection("employees")
       .orderBy("dept")
       .get()
       .then(querySnapshot => {
+        this.loading = false;
         querySnapshot.forEach(doc => {
-          console.log(doc.id, " => ", doc.data());
           const data = {
             id: doc.id,
             employee_id: doc.data().employee_id,

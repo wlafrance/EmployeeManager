@@ -1,26 +1,34 @@
 <template>
   <div id="new-employee">
-    <h3>New employee</h3>
+    <h3>New Employee</h3>
     <div class="row">
       <form @submit.prevent="saveEmployee" class="col s12">
-        <div type="text" class="input-field col s12">
-          <input type="text" v-model="employee_id" required />
-          <label>Empoyee Id #</label>
+        <div class="row">
+          <div class="input-field col s12">
+            <input type="text" v-model="employee_id" required />
+            <label>Employee ID#</label>
+          </div>
         </div>
-        <div type="text" class="input-field col s12">
-          <input type="text" v-model="name" required />
-          <label>Name</label>
+        <div class="row">
+          <div class="input-field col s12">
+            <input type="text" v-model="name" required />
+            <label>Name</label>
+          </div>
         </div>
-        <div type="text" class="input-field col s12">
-          <input type="text" v-model="dept" required />
-          <label>Department</label>
+        <div class="row">
+          <div class="input-field col s12">
+            <input type="text" v-model="dept" required />
+            <label>Department</label>
+          </div>
         </div>
-        <div type="text" class="input-field col s12">
-          <input type="text" v-model="position" required />
-          <label>Position</label>
+        <div class="row">
+          <div class="input-field col s12">
+            <input type="text" v-model="position" required />
+            <label>Position</label>
+          </div>
         </div>
         <button type="submit" class="btn">Submit</button>
-        <router-link class="btn grey" to="/">Cancel</router-link>
+        <router-link to="/" class="btn grey">Cancel</router-link>
       </form>
     </div>
   </div>
@@ -28,7 +36,6 @@
 
 <script>
 import db from "./firebaseInit";
-
 export default {
   name: "new-employee",
   data() {
@@ -48,8 +55,13 @@ export default {
           dept: this.dept,
           position: this.position
         })
-        .then(docRef => this.$router.push("/"))
-        .catch(error => console.log(err));
+        .then(docRef => {
+          console.log("Client added: ", docRef.id);
+          this.$router.push("/");
+        })
+        .catch(error => {
+          console.error("Error adding employee: ", error);
+        });
     }
   }
 };
