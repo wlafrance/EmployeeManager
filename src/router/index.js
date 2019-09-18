@@ -1,3 +1,4 @@
+import firebase from 'firebase';
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from '@/components/Home';
@@ -6,7 +7,6 @@ import NewEmployee from '@/components/NewEmployee';
 import EditEmployee from '@/components/EditEmployee';
 import Login from '@/components/Login';
 import Register from '@/components/Register';
-import firebase from 'firebase';
 
 Vue.use(Router);
 
@@ -22,7 +22,7 @@ let router = new Router({
     },
     {
       path: '/login',
-      name: 'login',
+      name: 'Login',
       component: Login,
       meta: {
         requiresGuest: true
@@ -30,7 +30,7 @@ let router = new Router({
     },
     {
       path: '/register',
-      name: 'register',
+      name: 'Register',
       component: Register,
       meta: {
         requiresGuest: true
@@ -38,7 +38,7 @@ let router = new Router({
     },
     {
       path: '/new',
-      name: 'new-employee',
+      name: 'NewEployee',
       component: NewEmployee,
       meta: {
         requiresAuth: true
@@ -46,7 +46,7 @@ let router = new Router({
     },
     {
       path: '/edit/:employee_id',
-      name: 'edit-employee',
+      name: 'EditEmployee',
       component: EditEmployee,
       meta: {
         requiresAuth: true
@@ -54,7 +54,7 @@ let router = new Router({
     },
     {
       path: '/:employee_id',
-      name: 'view-employee',
+      name: 'ViewEmployee',
       component: ViewEmployee,
       meta: {
         requiresAuth: true
@@ -65,10 +65,15 @@ let router = new Router({
 
 // Nav Guard
 router.beforeEach((to, from, next) => {
+  debugger;
   // Check for requiresAuth guard
+  const currentUser = firebase.auth().currentUser;
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+
+  var matchedTo = to.meta.requiresAuth;
+  var matched = to.matched.some(record => record.meta.requiresAuth);
   if (to.matched.some(record => record.meta.requiresAuth)) {
     // Check if NO logged user
-
     if (!firebase.auth().currentUser) {
       // Go to login
       next({
