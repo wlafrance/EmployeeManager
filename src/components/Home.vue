@@ -15,10 +15,57 @@
         </router-link>
       </li>
     </ul>
-    <div class="fixed-action-btn">
+    <!-- <div class="fixed-action-btn" style="padding-right:150px">
       <router-link to="/new" class="btn-floating btn-large red">
         <i class="fa fa-plus"></i>
       </router-link>
+    </div>-->
+    <div class="fixed-action-btn">
+      <a class="btn-floating btn-large red">
+        <i class="large material-icons">menu</i>
+      </a>
+      <ul>
+        <li>
+          <span class="fa-stack">
+            <a class="btn-floating pink">
+              <i class="fa fa-female fa-stack-2x"></i>
+              <i
+                class="fa fa-plus fa-stack-1x"
+                style=" font-size: 11px; top:-7px; left:9px; color:white  "
+              ></i>
+            </a>
+          </span>
+        </li>
+        <li>
+          <span class="fa-stack">
+            <a class="btn-floating blue">
+              <i class="fa fa-male fa-stack-2x"></i>
+              <i
+                class="fa fa-plus fa-stack-1x"
+                style=" font-size: 11px; top:-7px; left:9px; color:white  "
+              ></i>
+            </a>
+          </span>
+        </li>
+        <li>
+          <span class="fa-stack">
+            <a class="btn-floating orange">
+              <i class="fa fa-genderless fa-stack-2x"></i>
+              <i
+                class="fa fa-plus fa-stack-1x"
+                style=" font-size: 11px; top:-7px; left:9px; color:white  "
+              ></i>
+            </a>
+          </span>
+        </li>
+        <li>
+          <span class="fa-stack">
+            <router-link to="/new" class="btn-floating btn red">
+              <i class="fa fa-plus"></i>
+            </router-link>
+          </span>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
