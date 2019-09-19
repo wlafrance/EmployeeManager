@@ -1,8 +1,8 @@
 <template>
   <nav>
-    <div class="nav-wrapper green">
+    <div class="nav-wrapper pink darken-4">
       <div class="container">
-        <router-link to="/" class="brand-logo">Employee Manager</router-link>
+        <router-link to="/" class="brand-logo accent-1 glow">Drag Artist Manager</router-link>
         <a href="#" data-activates="mobile-demo" class="button-collapse">
           <i class="material-icons">menu</i>
         </a>
@@ -84,4 +84,35 @@ export default {
 .email {
   padding-right: 10px;
 }
+/* .nav-wrapper {
+  background: linear-gradient(
+    to right,
+    #a000c0,
+    #4040ff,
+    #007940,
+    #ffff00,
+    #ff8000,
+    #f00000
+  );
+} 
+
+.glow {
+  color: rgb(255, 255, 255);
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073,
+      0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6,
+      0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}*/
 </style>
