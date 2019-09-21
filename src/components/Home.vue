@@ -15,11 +15,6 @@
         </router-link>
       </li>
     </ul>
-    <!-- <div class="fixed-action-btn" style="padding-right:150px">
-      <router-link to="/new" class="btn-floating btn-large red">
-        <i class="fa fa-plus"></i>
-      </router-link>
-    </div>-->
     <div class="fixed-action-btn">
       <a class="btn-floating btn-large red">
         <i class="large material-icons">menu</i>
@@ -27,12 +22,8 @@
       <ul>
         <li>
           <span class="fa-stack">
-            <!-- <router-link
-              :to="{ name: 'new-persona', params: { personatype: fem }}"
-            >Navigate to Page2</router-link>-->
-
             <router-link
-              :to="{ name: 'new-persona', params: { persona_type: 'fem' }, query: { debug: true }}"
+              :to="{ name: 'new-persona', params: { persona_type: 'FEM' }, query: { debug: true }}"
               class="btn-floating pink"
             >
               <i class="fa fa-female fa-stack-2x"></i>
@@ -45,13 +36,16 @@
         </li>
         <li>
           <span class="fa-stack">
-            <a class="btn-floating blue">
+            <router-link
+              :to="{ name: 'new-persona', params: { persona_type: 'MAL' }, query: { debug: true }}"
+              class="btn-floating blue"
+            >
               <i class="fa fa-male fa-stack-2x"></i>
               <i
                 class="fa fa-plus fa-stack-1x"
                 style=" font-size: 11px; top:-7px; left:9px; color:white  "
               ></i>
-            </a>
+            </router-link>
           </span>
         </li>
         <li>

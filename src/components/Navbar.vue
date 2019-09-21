@@ -60,7 +60,7 @@ export default {
       this.isLoggedIn = true;
       this.currentUser = firebase.auth().currentUser.email;
     }
-    debugger;
+
     var elems = document.querySelectorAll(".fixed-action-btn");
     var instances = M.FloatingActionButton.init(elems, {
       direction: "left",

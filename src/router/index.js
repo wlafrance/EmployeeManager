@@ -74,7 +74,6 @@ let router = new Router({
 
 // Nav Guard
 router.beforeEach((to, from, next) => {
-  debugger;
   // Check for requiresAuth guard
   const currentUser = firebase.auth().currentUser;
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);

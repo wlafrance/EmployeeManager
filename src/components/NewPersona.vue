@@ -1,5 +1,7 @@
 <template>
-  <div id="new-persona">New Persona: {{persona_type}}</div>
+  <div id="new-persona">
+    <h3>New Persona: {{persona_type}}</h3>
+  </div>
 </template>
 
 <script>
@@ -13,8 +15,10 @@ export default {
     };
   },
   created() {
-    debugger;
-    this.persona_type = this.$route.params.persona_type;
+    this.persona_type =
+      this.$route.params.persona_type.toUpperCase() == "FEM"
+        ? "FEMALE"
+        : "MALE";
   }
 };
 </script>
