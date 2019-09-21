@@ -27,13 +27,20 @@
       <ul>
         <li>
           <span class="fa-stack">
-            <a class="btn-floating pink">
+            <!-- <router-link
+              :to="{ name: 'new-persona', params: { personatype: fem }}"
+            >Navigate to Page2</router-link>-->
+
+            <router-link
+              :to="{ name: 'new-persona', params: { persona_type: 'fem' }, query: { debug: true }}"
+              class="btn-floating pink"
+            >
               <i class="fa fa-female fa-stack-2x"></i>
               <i
                 class="fa fa-plus fa-stack-1x"
                 style=" font-size: 11px; top:-7px; left:9px; color:white  "
               ></i>
-            </a>
+            </router-link>
           </span>
         </li>
         <li>

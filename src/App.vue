@@ -9,14 +9,10 @@
 
 <script>
 import Navbar from "./components/Navbar";
-
-import NewEmployee from "./components/NewEmployee";
 export default {
   name: "app",
   components: {
-    Navbar,
-
-    NewEmployee
+    Navbar
   }
 };
 </script>
