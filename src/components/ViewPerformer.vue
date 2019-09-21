@@ -5,8 +5,6 @@
         <h4>{{name}}</h4>
       </li>
       <li class="collection-item">Performer ID#: {{performer_id}}</li>
-      <li class="collection-item">Department: {{dept}}</li>
-      <li class="collection-item">Position: {{position}}</li>
     </ul>
     <router-link to="/" class="btn grey">Back</router-link>
     <button @click="deletePerformer" class="btn red">Delete</button>
@@ -29,9 +27,7 @@ export default {
   data() {
     return {
       performer_id: null,
-      name: null,
-      dept: null,
-      position: null
+      name: null
     };
   },
   beforeRouteEnter(to, from, next) {
@@ -43,8 +39,6 @@ export default {
           next(vm => {
             vm.performer_id = doc.data().performer_id;
             vm.name = doc.data().name;
-            vm.dept = doc.data().dept;
-            vm.position = doc.data().position;
           });
         });
       });
@@ -61,8 +55,6 @@ export default {
           querySnapshot.forEach(doc => {
             this.performer_id = doc.data().performer_id;
             this.name = doc.data().name;
-            this.dept = doc.data().dept;
-            this.position = doc.data().position;
           });
         });
     },

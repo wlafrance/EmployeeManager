@@ -3,7 +3,8 @@
     <div class="nav-wrapper pink darken-4">
       <div class="container">
         <router-link to="/" class="brand-logo accent-1 glow">
-          <span class="fa fa-users" style="color:pink"></span> Drag Artist Manager
+          <span class="fa fa-users" style="color:pink"></span>
+          <span class="hide-on-small-only">Drag Artist Manager</span>
         </router-link>
         <a href="#" data-activates="mobile-demo" class="button-collapse">
           <i class="material-icons">menu</i>
