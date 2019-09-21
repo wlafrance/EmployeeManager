@@ -8,13 +8,13 @@
         <div class="chip">
           <img src="../assets/Placeholder_female_superhero_c.png" alt="Contact Person" />
           {{performer.performer_id}}: {{performer.name}}
-          <router-link
-            class="secondary-content"
-            v-bind:to="{ name: 'view-performer', params: { employee_id: performer.employee_id }}"
-          >
-            <i class="fa fa-eye"></i>
-          </router-link>
         </div>
+        <router-link
+          class="secondary-content"
+          v-bind:to="{ name: 'view-performer', params: { employee_id: performer.employee_id }}"
+        >
+          <i class="fa fa-eye"></i>
+        </router-link>
       </li>
     </ul>
     <div class="fixed-action-btn">
