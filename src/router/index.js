@@ -2,10 +2,10 @@ import firebase from "firebase";
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "@/components/Home";
-import ViewEmployee from "@/components/ViewEmployee";
-import NewEmployee from "@/components/NewEmployee";
+import ViewPerformer from "@/components/ViewPerformer";
+import NewPerformer from "@/components/NewPerformer";
 import NewPersona from "@/components/NewPersona";
-import EditEmployee from "@/components/EditEmployee";
+import EditPerformer from "@/components/EditPerformer";
 import Login from "@/components/Login";
 import Register from "@/components/Register";
 
@@ -39,8 +39,8 @@ let router = new Router({
     },
     {
       path: "/new",
-      name: "new-employee",
-      component: NewEmployee,
+      name: "new-performer",
+      component: NewPerformer,
       meta: {
         requiresAuth: true
       }
@@ -54,17 +54,17 @@ let router = new Router({
       }
     },
     {
-      path: "/edit/:employee_id",
-      name: "edit-employee",
-      component: EditEmployee,
+      path: "/edit/:performer_id",
+      name: "edit-performer",
+      component: EditPerformer,
       meta: {
         requiresAuth: true
       }
     },
     {
-      path: "/:employee_id",
-      name: "view-employee",
-      component: ViewEmployee,
+      path: "/:performer_id",
+      name: "view-performer",
+      component: ViewPerformer,
       meta: {
         requiresAuth: true
       }

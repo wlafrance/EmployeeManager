@@ -10,7 +10,7 @@ export default {
   data() {
     return {
       persona_id: null,
-      persona_type: null,
+      persona_type: "Genderless",
       name: null
     };
   },

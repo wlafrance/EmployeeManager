@@ -1,12 +1,12 @@
 <template>
-  <div id="new-employee">
-    <h3>New Employee</h3>
+  <div id="new-performer">
+    <h3>New Performer</h3>
     <div class="row">
-      <form @submit.prevent="saveEmployee" class="col s12">
+      <form @submit.prevent="savePerformer" class="col s12">
         <div class="row">
           <div class="input-field col s12">
-            <input type="text" v-model="employee_id" required />
-            <label>Employee ID#</label>
+            <input type="text" v-model="performer_id" required />
+            <label>Performer ID#</label>
           </div>
         </div>
         <div class="row">
@@ -37,20 +37,20 @@
 <script>
 import db from "./firebaseInit";
 export default {
-  name: "new-employee",
+  name: "new-performer",
   data() {
     return {
-      employee_id: null,
+      performer_id: null,
       name: null,
       dept: null,
       position: null
     };
   },
   methods: {
-    saveEmployee() {
-      db.collection("employees")
+    savePerformer() {
+      db.collection("performers")
         .add({
-          employee_id: this.employee_id,
+          performer_id: this.performer_id,
           name: this.name,
           dept: this.dept,
           position: this.position
@@ -60,7 +60,7 @@ export default {
           this.$router.push("/");
         })
         .catch(error => {
-          console.error("Error adding employee: ", error);
+          console.error("Error adding performer: ", error);
         });
     }
   }

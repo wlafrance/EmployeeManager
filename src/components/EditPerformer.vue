@@ -1,11 +1,11 @@
 <template>
-  <div id="new-employee">
-    <h3>Edit Employee</h3>
+  <div id="new-performer">
+    <h3>Edit Performer</h3>
     <div class="row">
-      <form @submit.prevent="updateEmployee" class="col s12">
+      <form @submit.prevent="updatePerformer" class="col s12">
         <div class="row">
           <div class="input-field col s12">
-            <input type="text" v-model="employee_id" required />
+            <input type="text" v-model="performer_id" required />
           </div>
         </div>
         <div class="row">
@@ -33,23 +33,23 @@
 <script>
 import db from "./firebaseInit";
 export default {
-  name: "edit-employee",
+  name: "edit-performer",
   data() {
     return {
-      employee_id: null,
+      performer_id: null,
       name: null,
       dept: null,
       position: null
     };
   },
   beforeRouteEnter(to, from, next) {
-    db.collection("employees")
-      .where("employee_id", "==", to.params.employee_id)
+    db.collection("performers")
+      .where("performer_id", "==", to.params.performer_id)
       .get()
       .then(querySnapshot => {
         querySnapshot.forEach(doc => {
           next(vm => {
-            vm.employee_id = doc.data().employee_id;
+            vm.performer_id = doc.data().performer_id;
             vm.name = doc.data().name;
             vm.dept = doc.data().dept;
             vm.position = doc.data().position;
@@ -62,35 +62,35 @@ export default {
   },
   methods: {
     fetchData() {
-      db.collection("employees")
-        .where("employee_id", "==", this.$route.params.employee_id)
+      db.collection("performers")
+        .where("performer_id", "==", this.$route.params.performer_id)
         .get()
         .then(querySnapshot => {
           querySnapshot.forEach(doc => {
-            this.employee_id = doc.data().employee_id;
+            this.performer_id = doc.data().performer_id;
             this.name = doc.data().name;
             this.dept = doc.data().dept;
             this.position = doc.data().position;
           });
         });
     },
-    updateEmployee() {
-      db.collection("employees")
-        .where("employee_id", "==", this.$route.params.employee_id)
+    updatePerformer() {
+      db.collection("performers")
+        .where("performer_id", "==", this.$route.params.performer_id)
         .get()
         .then(querySnapshot => {
           querySnapshot.forEach(doc => {
             doc.ref
               .update({
-                employee_id: this.employee_id,
+                performer_id: this.performer_id,
                 name: this.name,
                 dept: this.dept,
                 position: this.position
               })
               .then(() => {
                 this.$router.push({
-                  name: "view-employee",
-                  params: { employee_id: this.employee_id }
+                  name: "view-performer",
+                  params: { performer_id: this.performer_id }
                 });
               });
           });
