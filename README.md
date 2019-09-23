@@ -38,3 +38,8 @@ git remote add origin https://github.com/wlafrance/EmployeeManager.git
 git push -u origin master
 …or import code from another repository
 You can initialize this repository with code from a Subversion, Mercurial, or TFS project.
+
+## SOURCES
+
+https://github.com/MisterMChem/Dogedojo/blob/master/index.html
+https://www.telerik.com/blogs/how-to-emit-data-in-vue-beyond-the-vuejs-documentation
