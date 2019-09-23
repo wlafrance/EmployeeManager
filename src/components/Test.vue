@@ -1,6 +1,3 @@
-// https://github.com/MisterMChem/Dogedojo/blob/master/index.html
-//https://www.telerik.com/blogs/how-to-emit-data-in-vue-beyond-the-vuejs-documentation
-
 <template>
   <div class="col-lg-6" id="uploadDiv">
     <h2>Your favorite doge:</h2>
