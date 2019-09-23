@@ -8,6 +8,7 @@ import NewPersona from "@/components/NewPersona";
 import EditPerformer from "@/components/EditPerformer";
 import Login from "@/components/Login";
 import Register from "@/components/Register";
+import Test from "@/components/Test";
 
 Vue.use(Router);
 
@@ -35,6 +36,14 @@ let router = new Router({
       component: Register,
       meta: {
         requiresGuest: true
+      }
+    },
+    {
+      path: "/test",
+      name: "test",
+      component: Test,
+      meta: {
+        requiresAuth: true
       }
     },
     {
